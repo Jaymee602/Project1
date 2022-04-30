@@ -8,8 +8,6 @@ function getNYTimesJSON(queries) {
 async function popularArticles(numberArticle){
     const json = await getNYTimesJSON("mostpopular/v2/viewed/1.json?api-key=NbSmqy6RxhsJd8JK3rbJalvWSMsf1mqu");
     var topArticle = json.results[numberArticle].url;
-    var iframe = "<iframe src='" + topArticle + "' scrolling='no' frameborder='0' allowtransparency='true' title='Twitter Nears a Deal to Sell Itself to Elon Musk' style='border:none;max-width:500px;min-width:300px;min-height:550px;display:block;width:100%;'></iframe>"
-
     console.log(json);
 };
 
@@ -29,4 +27,12 @@ async function popularVideo() {
     console.log(baseLink);            // hello is now available
 };
 
+function makeNYIframe(){
+    var array = popularArticles(0);
+    var URL = "https://www.nytimes.com/svc/oembed/html/?url=https%3A%2F%2Fwww.nytimes.com%2F2022%2F04%2F27%2Fscience%2Fnasa-mars-wreckage-photo.html"
+    
+}
+
+
 popularArticles(0);
+// makeNYIframe();
