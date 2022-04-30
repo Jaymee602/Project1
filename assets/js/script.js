@@ -5,10 +5,12 @@ function getNYTimesJSON(queries) {
     .then((responseJson)=>{return responseJson});
 };
 
-async function popularArticles(numberArticle){
+//returns a link to the most popular article today
+async function popularArticle(){
     const json = await getNYTimesJSON("mostpopular/v2/viewed/1.json?api-key=NbSmqy6RxhsJd8JK3rbJalvWSMsf1mqu");
-    var topArticle = json.results[numberArticle].url;
-    console.log(json);
+    var topArticle = json.results[1].url;
+    makeNYIframe(topArticle);
+    
 };
 
 // returns Youtube API info with given queries
@@ -27,12 +29,22 @@ async function popularVideo() {
     console.log(baseLink);            // hello is now available
 };
 
-function makeNYIframe(){
-    var array = popularArticles(0);
-    var URL = "https://www.nytimes.com/svc/oembed/html/?url=https%3A%2F%2Fwww.nytimes.com%2F2022%2F04%2F27%2Fscience%2Fnasa-mars-wreckage-photo.html"
+//creates a usable iframe for an NYTimes Article
+function makeNYIframe(baseURL){
+    var trimURL = baseURL.replace("https://www.nytimes.com/", "");
+    console.log(trimURL);
     
+    var array = trimURL.split("/");
+    var URL = "https://www.nytimes.com/svc/oembed/html/?url=https%3A%2F%2Fwww.nytimes.com"
+    for(var i = 0; i < array.length; i++){
+        array[i] = "%2F" + array[i];
+        URL += array[i];
+    }
+    console.log(URL);
+    var iframe = document.querySelector("#iframe");
+    iframe.setAttribute("src", URL);
 }
 
 
-popularArticles(0);
-// makeNYIframe();
+
+popularArticle();
