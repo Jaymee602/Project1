@@ -24,6 +24,46 @@ async function popularArticle(){
     return URL;
 };
 
+async function NYTimesSearch(topic, search, startdate, enddate){
+    var queries = "search/v2/articlesearch.json?";
+    
+    if(startdate){
+        queries += "begin_date=" + startdate;
+    }
+    if(enddate){
+        if(startdate){
+            queries += "&";
+        }
+        queries += "end_date=";
+    }
+
+    if(queries){
+        if(startdate || enddate){
+            queries+="&"
+        };
+        queries += "fl=web_url";
+    }
+
+    if(topic){
+        queries += "&fq=section_name%3A%20(%22" + topic + "%22)";
+    }
+
+    if(search){
+        var array = search.split(" ");
+        queries += "&q=" + array[0];
+        for(var i = 1; i < array.length; i++){
+            queries += "%2B" + array[i];
+        }
+        console.log(queries);
+    }
+    queries += "&api-key=NbSmqy6RxhsJd8JK3rbJalvWSMsf1mqu";
+
+    const json = await getNYTimesJSON(queries);
+    console.log(json);
+    var links = json.response.docs;
+    console.log(links[0].web_url);
+}
+
 // returns a usuable URL to throw into an NYTimes iframe from a normal NYTimes URL.
 function makeNYIframe(baseURL){
     var trimURL = baseURL.replace("https://www.nytimes.com/", "");
@@ -37,6 +77,8 @@ function makeNYIframe(baseURL){
     return URL;
 }
 
+
+
 // ------- Youtube Functions -------
 
 // returns link to the most popular video on youtube today
@@ -47,3 +89,5 @@ async function popularVideo() {
     baseLink += id;
     return baseLink;
 };
+
+NYTimesSearch("World", "", "", "");
