@@ -14,12 +14,16 @@ function getYouTubeJSON(queries) {
     .then((responseJson)=>{return responseJson});
 };
 
+var article1 = document.querySelector("#article1");
+var article2 = document.querySelector("#article2");
+var videoOne = document.querySelector("#video1");
+
 // ------- NYTimes Functions -------
 
 //returns a usuable iframe link to the most popular article today
-async function popularArticle(){
+async function popularArticle(number){
     const json = await getNYTimesJSON("mostpopular/v2/viewed/1.json?api-key=NbSmqy6RxhsJd8JK3rbJalvWSMsf1mqu");
-    var topArticle = json.results[0].url;
+    var topArticle = json.results[number].url;
     var URL = makeNYIframe(topArticle);
     return URL;
 };
@@ -37,13 +41,30 @@ function makeNYIframe(baseURL){
     return URL;
 }
 
+async function createArticlesIndex(){
+    var popularArticle1 = await popularArticle(0);
+    var popularArticle2 = await popularArticle(1);
+    
+    article1.setAttribute("src", popularArticle1);
+    article2.setAttribute("src", popularArticle2);
+}
+
 // ------- Youtube Functions -------
 
 // returns link to the most popular video on youtube today
 async function popularVideo() {
-    const json = await getYouTubeJSON("videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=1&regionCode=US&key=AIzaSyALijQA6Nkc_HNMR6qFP0T1IN-cAO0Il2o");  // command waits until completion
-    var baseLink = "https://www.youtube.com/watch?v=";
-    var id = json.items[0].id;
+    const json = await getYouTubeJSON("videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=4&regionCode=US&key=AIzaSyALijQA6Nkc_HNMR6qFP0T1IN-cAO0Il2o");  // command waits until completion
+    var baseLink = "https://www.youtube.com/embed/";
+    var id = json.items[1].id;
     baseLink += id;
     return baseLink;
 };
+
+async function createVideosIndex(){
+    var videoURL = await popularVideo();
+
+    videoOne.setAttribute("src", videoURL);
+}
+
+createArticlesIndex();
+createVideosIndex();
