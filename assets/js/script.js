@@ -78,7 +78,6 @@ function makeNYIframe(baseURL){
 }
 
 
-
 // ------- Youtube Functions -------
 
 // returns link to the most popular video on youtube today
