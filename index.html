@@ -32,13 +32,13 @@
             </ul>
         </nav>
     </header>
-       <!--Trending Section-->
+    <!--Trending Section-->
     <section class="container border-bottom border-dark h-25 p-5">
         <div class="row">
             <div class="col col-md-3">
                 <h2 class="border-top border-bottom border-dark p-2 text-center">Trending</h2>
             </div>
-            <div class="col col-px-9 row embed-responsive embed-responsive-4by3">
+            <div id="trending" class="col col-px-9 row embed-responsive embed-responsive-4by3">
                 <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/MHVGX_opjDk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
@@ -50,10 +50,10 @@
                 <h2 class="border-top border-dark border-bottom p-3 text-center">Current Events</h2>
             </div>
             <div class="col col-px-5">
-                <div class="card p-5 bg-dark text-light">Article 1</div>
+                <iframe id="article1" src="" scrolling="no" frameborder="0" allowtransparency="true" title="" style="border:none;max-width:500px;min-width:300px;min-height:550px;display:block;width:100%;" id="iframe"></iframe>
             </div>
             <div class="col col-px-5">
-                <div class="card p-5 bg-dark text-light">Article 2</div>
+                <iframe id="article2" src="" scrolling="no" frameborder="0" allowtransparency="true" title="" style="border:none;max-width:500px;min-width:300px;min-height:550px;display:block;width:100%;" id="iframe"></iframe>
             </div>
         </div>
     </section>
@@ -62,7 +62,7 @@
         <div class="row">
             <h2 class="pb-4 text-center">- Today's Dog Video -</h2>
         </div>
-        <div class="row embed-responsive embed-responsive-4by3">
+        <div id="dogvideo" class="row embed-responsive embed-responsive-4by3">
             <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/gzHxkUM-Jbk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </section>
