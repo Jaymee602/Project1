@@ -14,9 +14,7 @@ function getYouTubeJSON(queries) {
     .then((responseJson)=>{return responseJson});
 };
 
-var article1 = document.querySelector("#article1");
-var article2 = document.querySelector("#article2");
-var videoOne = document.querySelector("#video1");
+
 
 // ------- NYTimes Functions -------
 
@@ -41,13 +39,7 @@ function makeNYIframe(baseURL){
     return URL;
 }
 
-async function createArticlesIndex(){
-    var popularArticle1 = await popularArticle(0);
-    var popularArticle2 = await popularArticle(1);
-    
-    article1.setAttribute("src", popularArticle1);
-    article2.setAttribute("src", popularArticle2);
-}
+
 
 // ------- Youtube Functions -------
 
@@ -55,10 +47,24 @@ async function createArticlesIndex(){
 async function popularVideo() {
     const json = await getYouTubeJSON("videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=4&regionCode=US&key=AIzaSyALijQA6Nkc_HNMR6qFP0T1IN-cAO0Il2o");  // command waits until completion
     var baseLink = "https://www.youtube.com/embed/";
-    var id = json.items[1].id;
+    var id = json.items[0].id;
     baseLink += id;
     return baseLink;
 };
+
+// ------------- index functions ----------
+
+var article1 = document.querySelector("#article1");
+var article2 = document.querySelector("#article2");
+var videoOne = document.querySelector("#video1");
+
+async function createArticlesIndex(){
+    var popularArticle1 = await popularArticle(0);
+    var popularArticle2 = await popularArticle(1);
+    
+    article1.setAttribute("src", popularArticle1);
+    article2.setAttribute("src", popularArticle2);
+}
 
 async function createVideosIndex(){
     var videoURL = await popularVideo();
@@ -68,3 +74,17 @@ async function createVideosIndex(){
 
 createArticlesIndex();
 createVideosIndex();
+
+// -------------- politics functions ------------
+
+
+// -------------- science functions ------------
+
+
+// -------------- sports functions ------------
+
+
+// -------------- tech functions ------------
+
+
+// -------------- finance functions ------------

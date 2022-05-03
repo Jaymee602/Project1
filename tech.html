@@ -11,43 +11,35 @@
     <link rel="icon" type="image/x-icon" href="./images/Favicon.png">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <img src="./images/favicon1.jpg" class="img-responsive" alt="logo">
-      <a class="navbar-brand" href="#">UpToDate</a>
-      <button class ="btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <img src="./images/favicon1.jpg" class="img-responsive" alt="logo">
+    <a class="navbar-brand" href="index.html">UpToDate</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> 
+      </ul>
+      <ul class="navbar-nav my-2 my-lg-0">
           <li class="nav-item active">
-            <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
-          </li>
-          
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form> 
-        </ul>
-        <ul class="navbar-nav my-2 my-lg-0">
+              <a class="nav-link" href="./finance.html">Finance</a>
+            </li>
             <li class="nav-item active">
-                <a class="nav-link" href="./finance.html">Finance <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="./politics.html" >Politics <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="./science.html">Science <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="./sports.html">Sports <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="./tech.html">Technology <span class="sr-only">(current)</span></a>
-              </li>
-        </ul>
-      </div>
-    </nav>
+              <a class="nav-link" href="./politics.html" >Politics</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="./science.html">Science</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="./sports.html">Sports</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="./tech.html">Technology</a>
+            </li>
+      </ul>
+    </div>
+  </nav>
     <section class="container border-bottom border-dark h-25 p-5">
       <div class="row">
           <div class="col col-md-3">
@@ -65,10 +57,10 @@
               <h2 class="border-top border-dark border-bottom p-3 text-center">Current Events</h2>
           </div>
           <div class="col col-px-5">
-              <div class="card p-5 bg-dark text-light">Article 1</div>
+            <iframe id="article1" src="" scrolling="no" frameborder="0" allowtransparency="true" title="" style="border:none;max-width:500px;min-width:300px;min-height:550px;display:block;width:100%;"></iframe>
           </div>
           <div class="col col-px-5">
-              <div class="card p-5 bg-dark text-light">Article 2</div>
+              <iframe id="article2" src="" scrolling="no" frameborder="0" allowtransparency="true" title="" style="border:none;max-width:500px;min-width:300px;min-height:550px;display:block;width:100%;"></iframe>
           </div>
       </div>
   </section>
