@@ -1,6 +1,5 @@
 ## Logo
-UpToDate
-
+#UpToDate
 (https://raw.githubusercontent.com/Jaymee602/Project1/develop/images/Favicon.png)
 
 ## Daily News Website
@@ -27,7 +26,7 @@ In this project we are using two free API's to display daily updated news. There
 
 ## Deployment
 
-Deployed link
+- Deployed link
 https://jaymee602.github.io/Project1/
 
 ## Acknowledgements
