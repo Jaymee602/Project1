@@ -1,4 +1,6 @@
-## Logo-UpToDate
+## Logo
+UpToDate
+
 (https://raw.githubusercontent.com/Jaymee602/Project1/develop/images/Favicon.png)
 
 ## Daily News Website
