@@ -154,7 +154,7 @@ if(article1){
 // -------------- politics functions ------------
 var politicsArticle1 = document.querySelector("#article1Politics");
 var politicsArticle2 = document.querySelector("#article2Politics");
-
+var politicsVideo = document.querySelector("#trending-politics");
 
 async function createArticlesPolitics(){
     var json = await NYTimesSearch("World", "", time, "");
@@ -166,6 +166,9 @@ async function createArticlesPolitics(){
     
     politicsArticle1.setAttribute("src", article1);
     politicsArticle2.setAttribute("src", article2);
+
+    var YTlink = await searchYoutube("Politics%20News", "");
+    scienceVideo.setAttribute("src", YTlink);
 }
 if(politicsArticle1){
     createArticlesPolitics();
@@ -174,7 +177,7 @@ if(politicsArticle1){
 // -------------- science functions ------------
 var scienceArticle1 = document.querySelector("#article1Science");
 var scienceArticle2 = document.querySelector("#article2Science");
-
+var scienceVideo = document.querySelector("#trending-science");
 
 async function createArticlesScience(){
     var json = await NYTimesSearch("Science", "", time, "");
@@ -186,6 +189,9 @@ async function createArticlesScience(){
     
     scienceArticle1.setAttribute("src", article1);
     scienceArticle2.setAttribute("src", article2);
+
+    var YTlink = await searchYoutube("Science%20News", "");
+    scienceVideo.setAttribute("src", YTlink);
 }
 if(scienceArticle1){
     createArticlesScience();
@@ -195,7 +201,7 @@ if(scienceArticle1){
 // -------------- sports functions ------------
 var sportsArticle1 = document.querySelector("#article1Sports");
 var sportsArticle2 = document.querySelector("#article2Sports");
-
+var sportsVideo = document.querySelector("#trending-sports");
 
 async function createArticlesSports(){
     var json = await NYTimesSearch("Sports", "", time, "");
@@ -207,6 +213,9 @@ async function createArticlesSports(){
     
     sportsArticle1.setAttribute("src", article1);
     sportsArticle2.setAttribute("src", article2);
+
+    var YTlink = await searchYoutube("Sports%20News", "");
+    sportsVideo.setAttribute("src", YTlink);
 }
 if(sportsArticle1){
     createArticlesSports();
