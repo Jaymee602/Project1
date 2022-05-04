@@ -14,9 +14,9 @@ In this project we are using two free API's to display daily updated news. There
 **Back End:** Javascript
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![image](https://user-images.githubusercontent.com/75327294/166738925-c1dfe074-b1ca-4dae-90df-7101065a80a8.png)
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![image](https://user-images.githubusercontent.com/75327294/166739380-99238deb-8d7e-4198-b4f6-e8c3be5977c1.png)
 
 
 ## API Reference
@@ -25,7 +25,7 @@ In this project we are using two free API's to display daily updated news. There
 - Youtube API- https://developers.google.com/youtube/v3
 ## Deployment
 
-Add Deployment link after the website is deployed
+https://jaymee602.github.io/Project1/finance.html
 
 ## Acknowledgements
 
