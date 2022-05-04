@@ -1,4 +1,3 @@
-
 ## Logo
 UpToDate
 
@@ -12,12 +11,12 @@ In this project we are using two free API's to display daily updated news. There
 **Front End:** HTML,CSS,Bootstrap
 
 **Back End:** Javascript
+
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/Jaymee602/Project1/commit/7e622a85c32462ea7ebaba71109e53c6518ec4e9)
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
+![App Screenshot]()
 
 ## API Reference
 
