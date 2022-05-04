@@ -88,6 +88,7 @@ async function NYTimesSearch(topic, search, startdate, enddate){
     queries += "&api-key=NbSmqy6RxhsJd8JK3rbJalvWSMsf1mqu";
 
     const json = await getNYTimesJSON(queries);
+    console.log(json);
     var links = json.response.docs;
     return links;
 };
@@ -120,7 +121,6 @@ async function searchYoutube(topic, search){
     var baseLink = "https://www.youtube.com/embed/";
     var id = json.items[0].id.videoId;
     baseLink += id;
-    console.log(baseLink);
     return baseLink;
 };
 searchYoutube("Finance%20News", "");
@@ -156,18 +156,20 @@ var politicsArticle1 = document.querySelector("#article1Politics");
 var politicsArticle2 = document.querySelector("#article2Politics");
 var politicsVideo = document.querySelector("#trending-politics");
 
-async function createArticlesPolitics(){
-    var json = await NYTimesSearch("World", "", time, "");
-    var article1 = json[0].web_url;
-    var article2 = json[1].web_url;
-
-    article1 = makeNYIframe(article1);
-    article2 = makeNYIframe(article2);
-    
-    politicsArticle1.setAttribute("src", article1);
-    politicsArticle2.setAttribute("src", article2);
-
-    var YTlink = await searchYoutube("Politics%20News", "");
+async function createArticlesPolitics(search){
+    var json = await NYTimesSearch("World", search, time, "");
+    if(json.length > 0){
+        var article1 = json[0].web_url;
+        article1 = makeNYIframe(article1);
+        politicsArticle1.setAttribute("src", article1);
+        
+    }
+    if(json.length > 1){
+        var article2 = json[1].web_url;
+        article2 = makeNYIframe(article2);
+        politicsArticle2.setAttribute("src", article2);
+    }
+    var YTlink = await searchYoutube("Politics%20News", search);
     scienceVideo.setAttribute("src", YTlink);
 }
 if(politicsArticle1){
@@ -179,18 +181,21 @@ var scienceArticle1 = document.querySelector("#article1Science");
 var scienceArticle2 = document.querySelector("#article2Science");
 var scienceVideo = document.querySelector("#trending-science");
 
-async function createArticlesScience(){
-    var json = await NYTimesSearch("Science", "", time, "");
-    var article1 = json[0].web_url;
-    var article2 = json[1].web_url;
+async function createArticlesScience(search){
+    var json = await NYTimesSearch("Science", search, time, "");
+    if(json.length > 0){
+        var article1 = json[0].web_url;
+        article1 = makeNYIframe(article1);
+        scienceArticle1.setAttribute("src", article1);
+        
+    }
+    if(json.length > 1){
+        var article2 = json[1].web_url;
+        article2 = makeNYIframe(article2);
+        scienceArticle2.setAttribute("src", article2);
+    }
 
-    article1 = makeNYIframe(article1);
-    article2 = makeNYIframe(article2);
-    
-    scienceArticle1.setAttribute("src", article1);
-    scienceArticle2.setAttribute("src", article2);
-
-    var YTlink = await searchYoutube("Science%20News", "");
+    var YTlink = await searchYoutube("Science%20News", search);
     scienceVideo.setAttribute("src", YTlink);
 }
 if(scienceArticle1){
@@ -203,18 +208,20 @@ var sportsArticle1 = document.querySelector("#article1Sports");
 var sportsArticle2 = document.querySelector("#article2Sports");
 var sportsVideo = document.querySelector("#trending-sports");
 
-async function createArticlesSports(){
-    var json = await NYTimesSearch("Sports", "", time, "");
-    var article1 = json[0].web_url;
-    var article2 = json[1].web_url;
-
-    article1 = makeNYIframe(article1);
-    article2 = makeNYIframe(article2);
-    
-    sportsArticle1.setAttribute("src", article1);
-    sportsArticle2.setAttribute("src", article2);
-
-    var YTlink = await searchYoutube("Sports%20News", "");
+async function createArticlesSports(search){
+    var json = await NYTimesSearch("Sports", search, time, "");
+    if(json.length > 0){
+        var article1 = json[0].web_url;
+        article1 = makeNYIframe(article1);
+        sportsArticle1.setAttribute("src", article1);
+        
+    }
+    if(json.length > 1){
+        var article2 = json[1].web_url;
+        article2 = makeNYIframe(article2);
+        sportsArticle2.setAttribute("src", article2);
+    }
+    var YTlink = await searchYoutube("Sports%20News", search);
     sportsVideo.setAttribute("src", YTlink);
 }
 if(sportsArticle1){
@@ -228,18 +235,20 @@ var techArticle2 = document.querySelector("#article2Tech");
 var techVideo = document.querySelector("#trending-tech");
 
 
-async function createArticlesTech(){
-    var json = await NYTimesSearch("Technology", "", time, "");
-    var article1 = json[0].web_url;
-    var article2 = json[1].web_url;
-
-    article1 = makeNYIframe(article1);
-    article2 = makeNYIframe(article2);
-    
-    techArticle1.setAttribute("src", article1);
-    techArticle2.setAttribute("src", article2);
-
-    var YTlink = await searchYoutube("Technology%20News", "");
+async function createArticlesTech(search){
+    var json = await NYTimesSearch("Technology", search, time, "");
+    if(json.length > 0){
+        var article1 = json[0].web_url;
+        article1 = makeNYIframe(article1);
+        techArticle1.setAttribute("src", article1);
+        
+    }
+    if(json.length > 1){
+        var article2 = json[1].web_url;
+        article2 = makeNYIframe(article2);
+        techArticle2.setAttribute("src", article2);
+    }
+    var YTlink = await searchYoutube("Technology%20News", search);
     techVideo.setAttribute("src", YTlink);
 }
 
@@ -253,23 +262,51 @@ var financeArticle1 = document.querySelector("#article1Finance");
 var financeArticle2 = document.querySelector("#article2Finance");
 var financeVideo = document.querySelector("#trending-finance");
 
-async function createArticlesFinance(){
-    var json = await NYTimesSearch("Your%20Money", "", time, "");
-    console.log(json);
-    var article1 = json[0].web_url;
-    if(json[1]){
+async function createArticlesFinance(search){
+
+    var json = await NYTimesSearch("Your%20Money", search, time, "");
+    if(json.length > 0){
+        var article1 = json[0].web_url;
+        article1 = makeNYIframe(article1);
+        financeArticle1.setAttribute("src", article1);
+        
+    }
+    if(json.length > 1){
         var article2 = json[1].web_url;
         article2 = makeNYIframe(article2);
         financeArticle2.setAttribute("src", article2);
-    };
-    
-    article1 = makeNYIframe(article1);
-    financeArticle1.setAttribute("src", article1);
+    }
 
-    var YTlink = await searchYoutube("Finance%20News", "");
+    var YTlink = await searchYoutube("Finance%20News", search);
     financeVideo.setAttribute("src", YTlink);
     
 };
 if(financeArticle1){
     createArticlesFinance();
 };
+
+var searchForm = document.querySelector("#search-bar");
+var searchBar = document.querySelector("#search");
+
+var loadSearch = function(event){
+    event.preventDefault();
+    var search = searchBar.value;
+    
+    if(politicsArticle1){
+        createArticlesPolitics(search);
+    };
+    if(scienceArticle1){
+        createArticlesScience(search);
+    };
+    if(sportsArticle1){
+        createArticlesSports(search);
+    };
+    if(techArticle1){
+        createArticlesTech(search);
+    }
+    if(financeArticle1){
+        createArticlesFinance(search);
+    };
+}
+
+document.addEventListener("submit", loadSearch);
