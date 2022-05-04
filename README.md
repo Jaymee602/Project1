@@ -18,6 +18,10 @@ In this project we are using two free API's to display daily updated news. There
 
 ![image](https://user-images.githubusercontent.com/75327294/166739380-99238deb-8d7e-4198-b4f6-e8c3be5977c1.png)
 
+![image](https://user-images.githubusercontent.com/75327294/166740277-5a62c2b5-2a7b-4932-944f-d065d81569c7.png)
+
+![image](https://user-images.githubusercontent.com/75327294/166740309-30da2052-dd97-40e2-8526-d4165a17b018.png)
+
 
 ## API Reference
 
