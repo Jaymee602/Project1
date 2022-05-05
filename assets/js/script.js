@@ -97,7 +97,7 @@ async function NYTimesSearch(topic, search, startdate, enddate){
 
 // returns link to the most popular video on youtube today
 async function popularVideo() {
-    const json = await getYouTubeJSON("videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=4&regionCode=US&key=AIzaSyALijQA6Nkc_HNMR6qFP0T1IN-cAO0Il2o");  // command waits until completion
+    const json = await getYouTubeJSON("videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=1&regionCode=US&key=AIzaSyALijQA6Nkc_HNMR6qFP0T1IN-cAO0Il2o");  // command waits until completion
     var baseLink = "https://www.youtube.com/embed/";
     var id = json.items[0].id;
     baseLink += id;
@@ -105,7 +105,7 @@ async function popularVideo() {
 };
 
 async function searchYoutube(topic, search){
-    var link = "search?part=snippet&maxResults=5&order=relevance&publishedAfter=" + nowArray[0] + "-" + nowArray[1] + "-" + nowArray[2] + "T00%3A00%3A00Z&q=";
+    var link = "search?part=snippet&maxResults=1&order=relevance&publishedAfter=" + nowArray[0] + "-" + nowArray[1] + "-" + nowArray[2] + "T00%3A00%3A00Z&q=";
     
     link += topic;
     if(search){
